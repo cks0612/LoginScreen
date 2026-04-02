@@ -1,13 +1,13 @@
 namespace LoginScreen
 {
-    public partial class Form1 : Form
+    public partial class qwe11 : Form
     {
-        public Form1()
+        public qwe11()
         {
             InitializeComponent();
         }
 
-        string myID = "admin"; 
+        string myID = "admin";
         string myPW = "superman";
 
         private void txtID_Enter(object sender, EventArgs e)
@@ -52,21 +52,44 @@ namespace LoginScreen
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string inputID = txtID.Text; 
-            string inputPW = txtPW.Text; 
-            
-            if (inputID == myID && inputPW == myPW) 
+            string inputID = txtID.Text;
+            string inputPW = txtPW.Text;
+
+            if (inputID == myID && inputPW == myPW)
             {
 
-                MessageBox.Show("로그인성공!"); 
-            
-            } else 
+                MessageBox.Show("로그인성공!");
+                lblErrorMsg.Visible = false;
+
+            }
+            else
             {
+
+                // MessageBox.Show("로그인실패~");
+                lblErrorMsg.Visible = true;
+                MessageBox.Show("아이디 또는 패스워드가 잘못 입력되었습니다.", "로그인", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
-                MessageBox.Show("로그인실패~"); 
-            
             }
 
+        }
+
+        private void txtID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtPW.Focus();
+
+            }
+        }
+
+        private void txtPW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnLogin.PerformClick();
+            }
         }
     }
 }

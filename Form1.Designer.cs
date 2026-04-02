@@ -1,6 +1,6 @@
 ﻿namespace LoginScreen
 {
-    partial class Form1
+    partial class qwe11
     {
         /// <summary>
         ///  Required designer variable.
@@ -32,6 +32,7 @@
             txtID = new TextBox();
             txtPW = new TextBox();
             btnLogin = new Button();
+            lblErrorMsg = new Label();
             SuspendLayout();
             // 
             // lblAppName
@@ -55,6 +56,7 @@
             txtID.TabIndex = 2;
             txtID.Text = "아이디";
             txtID.Enter += txtID_Enter;
+            txtID.KeyDown += txtID_KeyDown;
             txtID.Leave += txtID_Leave;
             // 
             // txtPW
@@ -67,6 +69,7 @@
             txtPW.TabIndex = 3;
             txtPW.Text = "패스워드";
             txtPW.Enter += txtPW_Enter;
+            txtPW.KeyDown += txtPW_KeyDown;
             txtPW.Leave += txtPW_Leave;
             // 
             // btnLogin
@@ -82,16 +85,30 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
-            // Form1
+            // lblErrorMsg
+            // 
+            lblErrorMsg.AutoEllipsis = true;
+            lblErrorMsg.AutoSize = true;
+            lblErrorMsg.Font = new Font("맑은 고딕", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            lblErrorMsg.ForeColor = Color.Red;
+            lblErrorMsg.Location = new Point(62, 321);
+            lblErrorMsg.Name = "lblErrorMsg";
+            lblErrorMsg.Size = new Size(247, 17);
+            lblErrorMsg.TabIndex = 4;
+            lblErrorMsg.Text = "아이디 또는 비밀번호가 잘못되었습니다.";
+            lblErrorMsg.Visible = false;
+            // 
+            // qwe11
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(462, 489);
+            Controls.Add(lblErrorMsg);
             Controls.Add(btnLogin);
             Controls.Add(txtPW);
             Controls.Add(txtID);
             Controls.Add(lblAppName);
-            Name = "Form1";
+            Name = "qwe11";
             Text = "Login Screen";
             ResumeLayout(false);
             PerformLayout();
@@ -103,5 +120,6 @@
         private TextBox txtID;
         private TextBox txtPW;
         private Button btnLogin;
+        private Label lblErrorMsg;
     }
 }
